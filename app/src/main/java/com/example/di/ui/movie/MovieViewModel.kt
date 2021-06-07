@@ -1,16 +1,18 @@
 package com.example.di.ui.movie
 
+import android.app.Application
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.bumptech.glide.load.engine.Resource
+import com.example.di.di.base.BaseApplication
 import com.example.di.model.MovieResponse
 import com.example.di.repository.MovieRepository
 import kotlinx.coroutines.launch
 import retrofit2.Response
 import javax.inject.Inject
 
-class MovieViewModel @Inject constructor(val movieRepository: MovieRepository) : ViewModel() {
+class MovieViewModel @Inject constructor(val movieRepository: MovieRepository , private val application: Application) : ViewModel() {
 
 
 

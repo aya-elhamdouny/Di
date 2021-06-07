@@ -13,29 +13,30 @@ import javax.inject.Inject
 
 class MovieFragment : DaggerFragment(R.layout.movie_fragment) {
 
-/*
+
     lateinit var recyclerView: RecyclerView
-    @Inject
-    lateinit var adapter: MovieAdapter
+
     @Inject
     lateinit var viewModelFactory: ViewModelProvider.Factory
-    private val viewModel: MovieViewModel by viewModels {
-        viewModelFactory }
+    val viewmodel by lazy{
+        ViewModelProvider(this,  viewModelFactory)
+            .get(MovieViewModel::class.java)
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+    fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        setMovieRecyclerView()
+       // setMovieRecyclerView()
     }
 
 
-    private fun setMovieRecyclerView(){
-       *//* adapter = MovieAdapter()
+  /*  private fun setMovieRecyclerView(){
+       adapter = MovieAdapter()
         movie_rv.apply {
             adapter= adapter
             layoutManager = LinearLayoutManager(activity,LinearLayoutManager.HORIZONTAL,
                     false)
-        } }*//*
+        } }*/
 
-}*/}
+}
+}
 
 
