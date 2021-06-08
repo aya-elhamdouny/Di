@@ -1,6 +1,7 @@
 package com.example.di.network
 
 import com.example.di.model.MovieResponse
+import dagger.Provides
 import retrofit2.Response
 import retrofit2.http.GET
 import retrofit2.http.Query

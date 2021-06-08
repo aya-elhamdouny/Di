@@ -8,13 +8,14 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.di.R
+import com.example.di.network.MovieAPI
 import dagger.android.support.DaggerFragment
 import javax.inject.Inject
 
 class MovieFragment : DaggerFragment(R.layout.movie_fragment) {
 
 
-    lateinit var recyclerView: RecyclerView
+
 
     @Inject
     lateinit var viewModelFactory: ViewModelProvider.Factory

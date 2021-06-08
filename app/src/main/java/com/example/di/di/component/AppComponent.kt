@@ -22,4 +22,7 @@ interface AppComponent : AndroidInjector<BaseApplication> {
         fun application(application: Application) : Builder
         fun Build() : AppComponent
 }
+
+    override fun inject(app: BaseApplication)
+
 }

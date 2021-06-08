@@ -6,13 +6,23 @@ import android.content.res.Resources
 import com.bumptech.glide.Glide
 import com.bumptech.glide.RequestManager
 import com.bumptech.glide.request.RequestOptions
+import com.example.di.network.MovieAPI
 import dagger.Module
 import dagger.Provides
+import dagger.Reusable
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import javax.inject.Singleton
 @Module
  class AppModule {
+
+
+
+    @Provides
+    @Reusable
+    internal fun provideMovieApi(retrofit: Retrofit): MovieAPI {
+        return retrofit.create(MovieAPI::class.java)
+    }
 
     @Singleton
     @Provides
