@@ -17,9 +17,8 @@ import javax.inject.Singleton
  class AppModule {
 
 
-
     @Provides
-    @Reusable
+    @Singleton
     internal fun provideMovieApi(retrofit: Retrofit): MovieAPI {
         return retrofit.create(MovieAPI::class.java)
     }
@@ -31,7 +30,6 @@ import javax.inject.Singleton
                 .baseUrl("https://api.themoviedb.org/3/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build() }
-
 
 
     /**

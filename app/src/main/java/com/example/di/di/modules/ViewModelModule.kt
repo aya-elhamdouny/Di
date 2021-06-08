@@ -19,12 +19,14 @@ abstract class ViewModelModule {
     @Binds
     @IntoMap
     @ViewModelKey(MovieViewModel::class)
-    internal abstract fun bindMovieViewModel(movieViewModel : MovieViewModel): ViewModel
+     abstract fun bindMovieViewModel(movieViewModel : MovieViewModel): ViewModel
 
     @Binds
     @IntoMap
     @ViewModelKey(DetailViewModel::class)
-    internal abstract fun bindDEtailViewModel(detailViewModel: DetailViewModel): ViewModel
+     abstract fun bindDEtailViewModel(detailViewModel: DetailViewModel): ViewModel
+
+
 
 }
 

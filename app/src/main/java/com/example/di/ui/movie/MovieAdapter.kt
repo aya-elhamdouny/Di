@@ -1,4 +1,3 @@
-/*
 package com.example.di.ui.movie
 
 import com.example.di.R
@@ -69,4 +68,4 @@ class MovieAdapter : RecyclerView.Adapter<MovieAdapter.MovieViewHolder>() {
     override fun getItemCount(): Int {
         return differ.currentList.size
     }
-}*/
+}
