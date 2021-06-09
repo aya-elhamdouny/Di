@@ -20,7 +20,6 @@ class MovieFragment : DaggerFragment(R.layout.movie_fragment) {
 
     val TAG = "error"
     lateinit var viewModel: MovieViewModel
-    lateinit var movielist : List<Movie>
 
     @Inject
     lateinit var viewModelFactory: ViewModelProvider.Factory
@@ -33,22 +32,24 @@ class MovieFragment : DaggerFragment(R.layout.movie_fragment) {
         viewModel = ViewModelProvider(this, viewModelFactory).get(MovieViewModel::class.java)
         setMovieRecyclerView()
 
+       if(true){
+          adapter.differ.submitList( viewModel.moviesdbList)
+       }
+       else{ viewModel.moviesList.observe(viewLifecycleOwner, Observer { response ->
+           when (response) {
+               is State.Success -> {
+                   response.data?.let { movieResponse ->
+                       adapter.differ.submitList(movieResponse.movie)
+                   }
+               }
+               is State.Error -> {
+                   response.msg?.let { message ->
+                       Log.e(TAG, "error : $message")
+                   }
+               }
+           }
+       })}
 
-        viewModel.moviesList.observe(viewLifecycleOwner, Observer { response ->
-            when (response) {
-                is State.Success -> {
-                    response.data?.let { movieResponse ->
-                        adapter.differ.submitList(movieResponse.movie)
-                    }
-                }
-                is State.Error -> {
-                    response.msg?.let { message ->
-                        Log.e(TAG, "error : $message")
-
-                    }
-                }
-            }
-        })
 
 
     }

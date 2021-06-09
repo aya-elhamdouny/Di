@@ -1,5 +1,4 @@
 package com.example.di.ui.detail
-
 import android.os.Bundle
 import android.view.View
 import androidx.lifecycle.ViewModelProvider

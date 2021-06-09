@@ -1,6 +1,7 @@
 package com.example.di.database
 
 import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
 import androidx.room.*
 import com.example.di.model.Movie
 
@@ -12,8 +13,9 @@ interface  DAO {
     suspend fun insert(movie: List<Movie>)
 
     @Query("select * from Movie")
-    fun getMovies() : List<Movie>
+    fun getMovies() : MutableList<Movie>
 
     @Delete
-    suspend fun deleteMovie(movie: List<Movie>)
+    suspend fun deleteMovie()
+
 }

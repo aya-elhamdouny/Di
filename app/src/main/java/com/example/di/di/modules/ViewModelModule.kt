@@ -3,7 +3,6 @@ package com.example.di.di.modules
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.example.di.di.base.ViewModelKey
-import com.example.di.ui.detail.DetailViewModel
 import com.example.di.di.base.ViewModelProviderFactory
 import com.example.di.ui.movie.MovieViewModel
 import dagger.Binds
@@ -20,11 +19,6 @@ abstract class ViewModelModule {
     @IntoMap
     @ViewModelKey(MovieViewModel::class)
      abstract fun bindMovieViewModel(movieViewModel : MovieViewModel): ViewModel
-
-    @Binds
-    @IntoMap
-    @ViewModelKey(DetailViewModel::class)
-     abstract fun bindDEtailViewModel(detailViewModel: DetailViewModel): ViewModel
 
 
 

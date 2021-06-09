@@ -3,9 +3,12 @@ package com.example.di.di.modules
 import android.app.Application
 import android.content.Context
 import android.content.res.Resources
+import androidx.room.Room
 import com.bumptech.glide.Glide
 import com.bumptech.glide.RequestManager
 import com.bumptech.glide.request.RequestOptions
+import com.example.di.database.DAO
+import com.example.di.database.MovieDataBase
 import com.example.di.network.MovieAPI
 import dagger.Module
 import dagger.Provides
@@ -30,6 +33,21 @@ import javax.inject.Singleton
                 .baseUrl("https://api.themoviedb.org/3/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build() }
+
+
+    @Singleton
+    @Provides
+    fun provideDb(context: Context): MovieDataBase =
+        Room.databaseBuilder(context, MovieDataBase::class.java, "movie")
+            .fallbackToDestructiveMigration().build()
+
+
+    @Singleton
+    @Provides
+    fun provideUserDao(db: MovieDataBase): DAO = db.movieDao()
+
+
+
 
 
     /**
